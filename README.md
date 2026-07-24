@@ -1,3 +1,7 @@
+---
+layout: home
+---
+
 # Hi, I'm Rebecca 👋
 
 I'm a junior software developer sharing practical lessons from working with:
