@@ -1,6 +1,7 @@
 ---
 layout: page
 title: What I Learned Upgrading a Production Service from .NET 8 to .NET 10
+permalink: /articles/dotnet/dotnet-8-to-dotnet-10/
 ---
 
 Recently, I had the opportunity to upgrade a backend service from .NET 8 to .NET 10.
