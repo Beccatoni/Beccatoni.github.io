@@ -43,7 +43,13 @@ The framework change was the easiest part. Most of the work involved validating 
 
 If you're using Npgsql with PostgreSQL, be aware that Npgsql 10 defaults to `Prefer` for GSS-API session encryption. In some Linux environments without Kerberos installed, this may generate errors when attempting to get GSSAPI credentials.
 
-You may need to explicitly set `GSS Encryption Mode=Disable` in your connection string if you're not using GSS-API:
+When running in Kubernetes, you might not notice this issue until you try to check your application logs and state—that's when you'll see errors related to `libgssapi`:
+
+```
+Unable to load shared library 'libgssapi_krb5.so.2'
+```
+
+You can fix this by explicitly setting `GSS Encryption Mode=Disable` in your connection string if you're not using GSS-API:
 
 ```csharp
 "Host=myserver;Database=mydb;Username=myuser;Password=mypass;GSS Encryption Mode=Disable"
@@ -51,7 +57,7 @@ You may need to explicitly set `GSS Encryption Mode=Disable` in your connection 
 
 See the [Npgsql Security documentation](https://www.npgsql.org/doc/security.html) for more details.
 
-## Docker image changes: ADDUSER removed from bookworm-slim
+## Docker image changes: `ADDUSER` removed from bookworm-slim
 
 When upgrading to .NET 10, I discovered that the `adduser` command was removed from the `bookworm-slim` base images. This breaks Dockerfiles that create non-root users with `adduser`.
 
