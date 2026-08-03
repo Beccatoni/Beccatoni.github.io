@@ -1,8 +1,7 @@
 ---
-layout: default
+layout: page
+title: What I Learned Upgrading a Production Service from .NET 8 to .NET 10
 ---
-
-# What I Learned Upgrading a Production Service from .NET 8 to .NET 10
 
 Recently, I had the opportunity to upgrade a backend service from .NET 8 to .NET 10.
 
